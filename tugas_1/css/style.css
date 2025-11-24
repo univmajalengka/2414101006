@@ -1,0 +1,104 @@
+/* --- 1. RESET & GLOBAL --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+html { scroll-behavior: smooth; }
+body { background-color: #f4f6f8; color: #333; line-height: 1.6; }
+img { max-width: 100%; display: block; }
+
+/* --- 2. HEADER & NAVIGASI (DESKTOP) --- */
+header {
+    background-color: #1e272e;
+    padding: 0 5%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logo { color: white; font-weight: bold; font-size: 1.2rem; letter-spacing: 1px; text-transform: uppercase; }
+
+nav ul { list-style: none; display: flex; gap: 20px; }
+nav ul li a { color: white; text-decoration: none; font-size: 0.95rem; transition: 0.3s; font-weight: 500; }
+nav ul li a:hover { color: #f39c12; }
+.btn-login { background: #e74c3c; padding: 8px 20px; border-radius: 4px; }
+
+/* Tombol Hamburger (Default Sembunyi di Desktop) */
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
+.menu-toggle span { width: 28px; height: 3px; background-color: white; border-radius: 3px; transition: 0.3s; }
+
+/* --- 3. HERO SECTION (BANNER DESKTOP) --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/img/banner.jpg'), #333;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh; 
+    min-height: 400px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    color: white;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+.hero h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+
+/* --- 4. KONTEN UMUM --- */
+.container { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+.section-title { text-align: center; margin-bottom: 40px; }
+.section-title h2 { font-size: 2.2rem; color: #2c3e50; margin-bottom: 10px; }
+.section-title h2::after { content: ''; display: block; width: 70px; height: 4px; background: #f39c12; margin: 10px auto; border-radius: 2px; }
+
+/* Grid Wisata */
+.grid-wisata { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; }
+.card:hover { transform: translateY(-5px); }
+.card img { width: 100%; height: 200px; object-fit: cover; }
+.card-body { padding: 25px; }
+.card-body h3 { margin-bottom: 10px; color: #2c3e50; }
+.price { display: inline-block; background: #ecf0f1; padding: 5px 10px; border-radius: 5px; color: #d35400; font-weight: bold; margin: 10px 0; font-size: 0.9rem; }
+.btn-pesan { display: block; width: 100%; background: #27ae60; color: white; border: none; padding: 12px; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: 0.3s; font-weight: bold; text-decoration: none; text-align: center; margin-top: 10px; }
+.btn-pesan:hover { background: #219150; }
+
+/* Video & Galeri */
+.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.gallery-grid img { width: 100%; height: 180px; object-fit: cover; border-radius: 5px; transition: 0.3s; }
+.gallery-grid img:hover { transform: scale(1.05); }
+
+/* Footer */
+.footer { background: #2c3e50; color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
+.copyright { margin-top: 20px; font-size: 0.8rem; opacity: 0.7; }
+
+/* NOTA POPUP */
+.nota-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; display: none; justify-content: center; align-items: center; }
+.nota-box { background: #fff; width: 350px; padding: 20px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.3); font-family: 'Courier New', Courier, monospace; position: relative; }
+.nota-header { text-align: center; border-bottom: 2px dashed #333; padding-bottom: 10px; margin-bottom: 10px; }
+.nota-body { margin-bottom: 15px; font-size: 0.9rem; }
+.nota-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.nota-total { border-top: 2px dashed #333; padding-top: 10px; font-weight: bold; font-size: 1.1rem; }
+.nota-footer { text-align: center; margin-top: 20px; font-size: 0.8rem; color: #777; }
+.btn-konfirmasi { background: #27ae60; color: white; width: 100%; padding: 10px; border: none; cursor: pointer; font-weight: bold; margin-top: 10px; }
+.btn-batal { background: #e74c3c; color: white; width: 100%; padding: 5px; border: none; cursor: pointer; margin-top: 5px; }
+
+/* --- MEDIA QUERIES (KHUSUS HP) --- */
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+    nav ul { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; background-color: #1e272e; padding: 0; box-shadow: 0 5px 10px rgba(0,0,0,0.2); }
+    nav ul.active { display: flex; }
+    nav ul li { width: 100%; text-align: center; }
+    nav ul li a { display: block; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    
+    /* Banner HP */
+    .hero { height: 50vh; min-height: 250px; }
+    .hero h1 { font-size: 1.8rem; padding: 0 10px; }
+    
+    .container { padding: 40px 5%; }
+    .section-title h2 { font-size: 1.6rem; }
+}
